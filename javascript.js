@@ -13,28 +13,24 @@ function playRound(playerSelection, computerSelection) {
 
     switch (playerSelection.toLowerCase()) {
         case computerSelection:
-            console.log("It's a draw!");
-            break;
+            return "It's a draw!";
         case "rock":
             if (computerSelection === "Paper") {
-                console.log("You Lose! Paper beats Rock");
+                return "You Lose! Paper beats Rock";
             } else {
-                console.log("You Win! Rock beats Scissors");
+                return "You Win! Rock beats Scissors";
             }
-            break;
         case "paper":
             if (computerSelection === "Scissors") {
-                console.log("You Lose! Scissors beats Paper");
+                return "You Lose! Scissors beats Paper";
             } else {
-                console.log("You Win! Paper beats Rock");
+                return "You Win! Paper beats Rock";
             }
-            break;
         case "scissors":
             if (computerSelection === "Rock") {
-                console.log("You Lose! Rock beats Scissors");
+                return "You Lose! Rock beats Scissors";
             } else {
-                console.log("You Win! Scissors beats Paper");
+                return "You Win! Scissors beats Paper";
             }
-            break;
     }
 }
