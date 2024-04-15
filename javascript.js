@@ -90,9 +90,9 @@ function playGame() {
     console.log(roundOutcome);
 
     if (playerScore < computerScore) {
-        console.log(`You Lose! You won ${playerScore} times and the computer won ${computerScore}.`);
-    } else if (playerScore < computerScore) {
-        console.log(`You Win! You won ${playerScore} times and the computer won ${computerScore}.`);
+        console.log(`You Lose! You won ${playerScore} times and the computer won ${computerScore} times.`);
+    } else if (playerScore > computerScore) {
+        console.log(`You Win! You won ${playerScore} times and the computer won ${computerScore} times.`);
     } else {
         console.log(`It's a draw! Both players won ${playerScore} times.`);
     }
