@@ -11,89 +11,45 @@ function getComputerChoice() {
 
 function playRound(playerSelection, computerSelection) {
 
-    switch (playerSelection.toLowerCase()) {
+    switch (playerSelection) {
         case computerSelection:
-            return "It's a draw!";
+            console.log("It's a draw!");
+            break;
         case "rock":
             if (computerSelection === "paper") {
-                return "You Lose! Paper beats Rock";
+                console.log("You Lose! Paper beats Rock");
             } else {
-                return "You Win! Rock beats Scissors";
+                console.log("You Win! Rock beats Scissors");
             }
+            break;
         case "paper":
             if (computerSelection === "scissors") {
-                return "You Lose! Scissors beats Paper";
+                console.log("You Lose! Scissors beats Paper");
             } else {
-                return "You Win! Paper beats Rock";
+                console.log("You Win! Paper beats Rock");
             }
+            break;
         case "scissors":
             if (computerSelection === "rock") {
-                return "You Lose! Rock beats Scissors";
+                console.log("You Lose! Rock beats Scissors");
             } else {
-                return "You Win! Scissors beats Paper";
+                console.log("You Win! Scissors beats Paper");
             }
     }
 }
 
-function playGame() {
-    let playerScore = 0;
-    let computerScore = 0;
-
-    let playerSelection = prompt("Enter your choice");
-    let computerSelection = getComputerChoice();
-    let roundOutcome = playRound(playerSelection, computerSelection);
-    if (roundOutcome.startsWith("You Win!")) {
-        playerScore++;
-    } else if (roundOutcome.startsWith("You Lose!")) {
-        computerScore++;
-    }
-    console.log(roundOutcome);
-
-    playerSelection = prompt("Enter your choice");
-    computerSelection = getComputerChoice();
-    roundOutcome = playRound(playerSelection, computerSelection);
-    if (roundOutcome.startsWith("You Win!")) {
-        playerScore++;
-    } else if (roundOutcome.startsWith("You Lose!")) {
-        computerScore++;
-    }
-    console.log(roundOutcome);
-
-    playerSelection = prompt("Enter your choice");
-    computerSelection = getComputerChoice();
-    roundOutcome = playRound(playerSelection, computerSelection);
-    if (roundOutcome.startsWith("You Win!")) {
-        playerScore++;
-    } else if (roundOutcome.startsWith("You Lose!")) {
-        computerScore++;
-    }
-    console.log(roundOutcome);
-
-    playerSelection = prompt("Enter your choice");
-    computerSelection = getComputerChoice();
-    roundOutcome = playRound(playerSelection, computerSelection);
-    if (roundOutcome.startsWith("You Win!")) {
-        playerScore++;
-    } else if (roundOutcome.startsWith("You Lose!")) {
-        computerScore++;
-    }
-    console.log(roundOutcome);
-
-    playerSelection = prompt("Enter your choice");
-    computerSelection = getComputerChoice();
-    roundOutcome = playRound(playerSelection, computerSelection);
-    if (roundOutcome.startsWith("You Win!")) {
-        playerScore++;
-    } else if (roundOutcome.startsWith("You Lose!")) {
-        computerScore++;
-    }
-    console.log(roundOutcome);
-
-    if (playerScore < computerScore) {
-        console.log(`You Lose! You won ${playerScore} times and the computer won ${computerScore} times.`);
-    } else if (playerScore > computerScore) {
-        console.log(`You Win! You won ${playerScore} times and the computer won ${computerScore} times.`);
-    } else {
-        console.log(`It's a draw! Both players won ${playerScore} times.`);
-    }
-}
+const buttons = document.querySelectorAll("button");
+buttons.forEach((element) => {
+    element.addEventListener("click", (event) => {
+        switch (event.target.id) {
+            case "rock":
+                playRound("rock", getComputerChoice());
+                break;
+            case "paper":
+                playRound("paper", getComputerChoice());
+                break;
+            case "scissors":
+                playRound("scissors", getComputerChoice());
+        }
+    })
+})
