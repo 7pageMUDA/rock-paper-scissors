@@ -9,31 +9,49 @@ function getComputerChoice() {
     }
 }
 
+const roundOutcome = document.createElement("div");
+const score = document.createElement("div");
+let playerScore = 0;
+let computerScore = 0;
+
 function playRound(playerSelection, computerSelection) {
 
     switch (playerSelection) {
         case computerSelection:
-            console.log("It's a draw!");
+            roundOutcome.textContent = "It's a draw!";
+            score.textContent = `Player: ${playerScore}    Computer: ${computerScore}`;
             break;
         case "rock":
             if (computerSelection === "paper") {
-                console.log("You Lose! Paper beats Rock");
+                computerScore++;
+                roundOutcome.textContent = "You Lose! Paper beats Rock";
+                score.textContent = `Player: ${playerScore}    Computer: ${computerScore}`;
             } else {
-                console.log("You Win! Rock beats Scissors");
+                playerScore++;
+                roundOutcome.textContent = "You Win! Rock beats Scissors";
+                score.textContent = `Player: ${playerScore}    Computer: ${computerScore}`;
             }
             break;
         case "paper":
             if (computerSelection === "scissors") {
-                console.log("You Lose! Scissors beats Paper");
+                computerScore++;
+                roundOutcome.textContent = "You Lose! Scissors beats Paper";
+                score.textContent = `Player: ${playerScore}    Computer: ${computerScore}`;
             } else {
-                console.log("You Win! Paper beats Rock");
+                playerScore++;
+                roundOutcome.textContent = "You Win! Paper beats Rock";
+                score.textContent = `Player: ${playerScore}    Computer: ${computerScore}`;
             }
             break;
         case "scissors":
             if (computerSelection === "rock") {
-                console.log("You Lose! Rock beats Scissors");
+                computerScore++;
+                roundOutcome.textContent = "You Lose! Rock beats Scissors";
+                score.textContent = `Player: ${playerScore}    Computer: ${computerScore}`;
             } else {
-                console.log("You Win! Scissors beats Paper");
+                playerScore++;
+                roundOutcome.textContent = "You Win! Scissors beats Paper";
+                score.textContent = `Player: ${playerScore}    Computer: ${computerScore}`;
             }
     }
 }
@@ -53,3 +71,7 @@ buttons.forEach((element) => {
         }
     })
 })
+
+const body = document.querySelector("body");
+body.append(roundOutcome, score);
+
