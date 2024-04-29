@@ -53,7 +53,22 @@ function playRound(playerSelection, computerSelection) {
                 roundOutcome.textContent = "You Win! Scissors beats Paper";
                 score.textContent = `Player: ${playerScore}    Computer: ${computerScore}`;
             }
+            break;
     }
+    if (playerScore === 5 || computerScore === 5) {
+        gameOver();
+    }
+}
+
+function gameOver() {
+    buttons.forEach((e) => e.remove());
+    if (playerScore === 5) {
+        roundOutcome.textContent = "You Win!";
+    }
+    if (computerScore === 5) {
+        roundOutcome.textContent = "You LOSE! L BOZO GIT GUD";
+    }
+    score.textContent = "Final Score: " + score.textContent;
 }
 
 const buttons = document.querySelectorAll("button");
@@ -71,7 +86,6 @@ buttons.forEach((element) => {
         }
     })
 })
-
 const body = document.querySelector("body");
 body.append(roundOutcome, score);
 
